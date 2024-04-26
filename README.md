@@ -5,7 +5,7 @@
 - Nome do Projeto: D.I.V.E
 - Descrição: D.I.V.E é uma aplicação web que tem como principal objetivo concentrar todos os manuais de montagem da empresa Dell Technologies em um único lugar, permitindo assim um acesso prático pelos montadores das linhas de produção e um alcance maior nas notificações sobre novas atualizações.
 - Arquitetura: MVC (Model-View-Controller)
-- Ferramenta de Diagramação: Draw.io
+- Ferramenta de Diagramação: Draw.io, Sails.js e Node.js
 
 
 ______
@@ -56,12 +56,6 @@ ______
 
 
 ### Controladores (Controllers):
-- Liste os controladores do seu projeto e suas responsabilidades.
-- Descreva as ações (methods) de cada controlador e seus parâmetros de entrada e saída.
-- Explique como os controladores interagem com os modelos e views.
-
-
-
 
 #### Controle de usuário
 - Responsável pela autenticação de usuário e autorização de acesso;
