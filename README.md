@@ -1,20 +1,27 @@
 # Ponderada - Design de Arquitetura MVC
 
+
 # Arquitetura MVC
 - Nome do Projeto: D.I.V.E
 - Descrição: D.I.V.E é uma aplicação web que tem como principal objetivo concentrar todos os manuais de montagem da empresa Dell Technologies em um único lugar, permitindo assim um acesso prático pelos montadores das linhas de produção e um alcance maior nas notificações sobre novas atualizações.
 - Arquitetura: MVC (Model-View-Controller)
 - Ferramenta de Diagramação: Draw.io
 
+
 ______
+
 
 ## Modelos (Models):
 
+
 ### Entidades
+
 
 #### Funcionários
 
+
 ##### Atributos:
+
 
 - **Id**: Identificador único do funcionário (chave primária);
 - **Nome**: Nome completo do usuário;
@@ -22,9 +29,12 @@ ______
 - **Senha**: Senha de acesso ao sistema fornecida ao usuário;
 - **Permissão**: Permissão atribuída ao usuário (montador ou administrador);
 
+
 #### Manuais
 
+
 ##### Atributos:
+
 
 - **Id**: Identificador único do manual (chave primária);
 - **Título**: Nome do dispositivo;
@@ -32,19 +42,25 @@ ______
 - **Conteúdo**: Links, PDFs e modelos 3D associados ao manual;
 - **Versão**: Número correspondente a versão mais atual do manual (Ex.: V.1);
 
+
 ### Relações
+
 
 #### Funcionários <=> Manuais
 - Cada funcionário pode ter muitos manuais atribuídos a ele
 - Cada manual pode ser atribuído para muitas pessoas
 - Relação de muitos para muitos
 
+
 ______
+
 
 ### Controladores (Controllers):
 - Liste os controladores do seu projeto e suas responsabilidades.
 - Descreva as ações (methods) de cada controlador e seus parâmetros de entrada e saída.
 - Explique como os controladores interagem com os modelos e views.
+
+
 
 
 #### Controle de usuário
@@ -56,7 +72,6 @@ ______
         - Interage com o modelo Funcionários para verificar se o usuário forneceu as credenciais corretas e qual seu respectivo nível de acesso;
         - Retorna o objeto User autenticado ou null se as credenciais forem inválidas.
 
-
 #### Interações com os manuais
 - Responsável pela adição, atualização, visualização e listagem dos manuais
 - Ações:
@@ -65,7 +80,7 @@ ______
         - Envia para o banco de dados as informações e arquivos necessários para criar um novo manual;
     - Atualizar(Id, novadescrição, novosconteúdos, novaversão)
         - **Parâmetro de entrada:** Id do manual, novadescrição (Caso necessário), novosconteúdos (Caso necessário), novaversão;
-        - Envia para o banco de dados novas informações que devem sobreescrever as antigas a fim de atualizar o manual;
+        - Envia para o banco de dados novas informações que devem sobrescrever as antigas a fim de atualizar o manual;
     - Visualizar(Id, nomedoDispositivo, descrição, versão, conteúdo)
         - **Parâmetro de entrada:** Id do manual
         - **Parâmetro de saída:** Nome do dispositivo, descrição, versão e conteúdo
@@ -87,13 +102,12 @@ ______
 
 #### Banco de dados
 - Para o banco de dados foi escolhido o PostgreSQL já que precisamos de um banco de dados relacional que nos permitisse armazenar usuários, senhas, manuais e arquivos de forma eficiente.
-- Ele se relaciona com o MVC por meio dos controllers que enviam comandos e retornando as informações necessárias presentes no banco de dados.
+- Ele se relaciona com o MVC por meio dos controllers que enviam comandos e retornam as informações necessárias presentes no banco de dados.
 
 #### Autenticação e Autorização:
 
 - Para a autenticação e autorização foi escolhido o sistema SSO, um serviço de autenticação responsável pelo login dos usuários.
 - Os controllers de usuário podem integrar-se com o serviço de autenticação para verificar as credenciais do usuário durante o login e controlar o acesso às funcionalidades da aplicação.
-
 _____
 
 ### Implicações da Arquitetura:
